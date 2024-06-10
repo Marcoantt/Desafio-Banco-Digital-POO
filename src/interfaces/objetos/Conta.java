@@ -49,7 +49,7 @@ public abstract class Conta implements IConta{
 
     @Override
     public void sacar(double valorTransacao) {
-        if (saldo != 0) {
+        if (saldo >= valorTransacao) {
             saldo -= valorTransacao;
             adicionarTransacao("saque", valorTransacao, numeroConta);
         } else {
@@ -64,7 +64,7 @@ public abstract class Conta implements IConta{
 
     @Override
     public void transferir(double valorTransacao, long numeroContaTransferencia) {
-        if (saldo != 0) {
+        if (saldo >= valorTransacao) {
             saldo -= valorTransacao;
             adicionarTransacao("transferencia enviada", valorTransacao, numeroContaTransferencia);
         } else {

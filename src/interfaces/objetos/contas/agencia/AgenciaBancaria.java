@@ -256,7 +256,12 @@ public class AgenciaBancaria {
         if (listaNumeroContas.contains(numeroContaTransferencia) && listaNumeroContas.contains(numeroContaTransferida)) {
             for (Conta c : agenciaMap.values()) {
                 if (c.getNumeroConta() == numeroContaTransferencia) {
-                    c.transferir(valorTransferencia, numeroContaTransferencia);
+                    if (c.getSaldo() >= valorTransferencia) {
+                        c.transferir(valorTransferencia, numeroContaTransferencia);
+                    } else {
+                        System.out.println("Saldo insuficiente!");
+                        break;
+                    }
                 }
                 if (c.getNumeroConta() == numeroContaTransferida) {
                     c.receberTransferencia(valorTransferencia, numeroContaTransferida);                
