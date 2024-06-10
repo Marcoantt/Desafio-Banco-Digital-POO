@@ -30,7 +30,7 @@ public class ContaCorrente extends Conta{
     }
 
     public void pagarEmprestimo(double valorPagamento) {
-        if (getSaldo() > valorPagamento) {
+        if (getSaldo() >= valorPagamento) {
             if (valorPagamento > emprestimoRecebido) {
                 setValorEmprestimoDisponivel(getValorEmprestimoDisponivel()+emprestimoRecebido);
                 setSaldo(getSaldo()-emprestimoRecebido);
